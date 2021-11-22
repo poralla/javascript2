@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <title>Quiz</title>
+  </head>
+  <body>
+    <div class="intro py-3 bg-white">
+        <div class="container">
+        <h2 class="text-black display-3 text-center"><i> Quiz</i></h2>
+        </div>
+    </div>
+    
+     
+      <div class="result text-center d-none">
+<div class="jumbotron lead">
+   
+    <p>You are score is <span></span></p>
+</div>
+</div>
+
+
+   <div class="container bg-success">
+       <h3>On with questions</h3>
+       <form action="">
+<div class="my-5">
+    <div class="my-5">
+        <p>1.Who is making the Web standards?</p>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="q1" id="" value="A">
+        <label class="form-check-label" for="">Microsoft</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="q1" id="" value="B">
+        <label class="form-check-label" for="">Google</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="q1" id="" value="C">
+        <label class="form-check-label" for="">The World Word web Consortium</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="q1" id="" value="D">
+        <label class="form-check-label" for="">Mozilla</label>
+    </div>
+    </div>
+    <p>2. What does HTML5 stands for</p>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="q2" id="" value="A">
+    <label class="form-check-label" for="">Hyper Test and Markup Language</label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="q2" id="" value="B">
+    <label class="form-check-label" for="">Home tool Mark Language</label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="q2" id="" value="C">
+    <label class="form-check-label" for="">HyperText Markup Language</label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="q2" id="" value="D">
+    <label class="form-check-label" for="">Hyper4</label>
+</div>
+</div>
+
+<div class="my-5">
+    <p>3.Which HTML tag is used to define an internal style sheet</p>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="q3" id="" value="A">
+    <label class="form-check-label" for="">script tag</label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="q3" id="" value="B">
+    <label class="form-check-label" for=""> style tag </label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="q3" id="" value="C">
+    <label class="form-check-label" for="">css tag</label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="q3" id="" value="D">
+    <label class="form-check-label" for=""> h1 tag</label>
+</div>
+</div>
+
+<div class="my-5">
+    <p>4.JS stands for</p>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="q4" id="" value="A">
+    <label class="form-check-label" for="">JavaScript</label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="q4" id="" value="B">
+    <label class="form-check-label" for="">Jamesscript</label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="q4" id="" value="C">
+    <label class="form-check-label" for="">JS2</label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="q4" id="" value="D">
+    <label class="form-check-label" for="">Javastyle</label>
+</div>
+</div>
+
+
+
+<input class="btn btn-primary" type="submit" value="Submit">
+
+       </form>
+   </div>
+<script>
+    var key=['C','C','B','A'];
+    var r1=document.querySelector('.result');
+  var f1=document.querySelector('form');
+ 
+  f1.addEventListener('submit',function(e){
+    
+      e.preventDefault();
+      var score=0;
+    const users=[f1.q1.value,f1.q2.value,f1.q3.value,f1.q4.value];
+    users.forEach(function(u1,index){
+       
+        console.log(u1===key[index]);
+       if(u1===key[index]){
+score+=25;
+       }
+    })
+    
+    console.log(score);
+    scrollTo(0,0);
+    r1.classList.remove('d-none');
+    let output=0;
+    var timer=setInterval(function(){
+        r1.querySelector('span').textContent=`${output}`;
+        if(output===score){
+            clearInterval(timer);
+        }
+        else{
+            output++;
+        }
+        
+    },100)
+  //r1.querySelector('span').textContent=score;
+
+  })
+</script>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
